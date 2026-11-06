@@ -6,7 +6,7 @@ Um aplicativo gratuito para organizar a barra de menus do macOS. Arraste os íco
 
 Baixe o arquivo `Hide-It-Instalador.pkg` na [versão mais recente](https://github.com/mooshmassacre/Hide-It/releases/latest) e abra-o para instalar ou atualizar o aplicativo na pasta Aplicativos. O instalador pode solicitar a senha de administrador.
 
-O instalador disponibilizado nesta versão foi compilado para Macs com Apple Silicon. Ele não é assinado com Developer ID nem notarizado, e o macOS pode impedir sua abertura.
+O instalador disponibilizado nesta versão foi compilado para Macs com Apple Silicon. 
 
 ## Requisitos
 
@@ -29,18 +29,5 @@ O script compila para a arquitetura do Mac utilizado, sem dependências externas
 Segure Command e arraste os ícones que deseja ocultar para a esquerda do divisor `│`. Deixe a seta do Hide-It à direita dele. Clique na seta para alternar a visibilidade e use o clique direito para abrir as opções. Ao manter Command pressionado, a barra alterna a cada 3 segundos. Se a opção de recolhimento automático estiver ativada, ela se recolhe após 10 segundos expandida. Para desinstalar, feche o Hide-It e remova o aplicativo.
 
 No macOS 27, o Hide-It usa Acessibilidade para identificar os aplicativos à esquerda do divisor e uma interface interna do macOS para ocultá-los. É preciso autorizar o Hide-It em Ajustes do Sistema. A interface interna pode mudar em atualizações do macOS. Ícones do sistema permanecem visíveis, e vários ícones do mesmo aplicativo são tratados juntos. O aplicativo não envia esses dados pela rede.
-
-## Estado desta entrega
-
-Implementação em Swift/AppKit compilada no macOS. A ocultação usa uma interface interna no macOS 27 e ainda precisa ser verificada com monitores múltiplos, notch e alterações de resolução. Não inclui zona permanentemente oculta nem painel separado para ícones.
-
-## Verificação no Mac
-
-- Compilar e abrir sem erros.
-- Confirmar que a seta fica acessível quando os ícones são ocultados.
-- Mover um ícone para cada lado do divisor e confirmar a alternância.
-- Confirmar a ocultação após 10 segundos e a persistência das preferências.
-- Testar após reiniciar, trocar resolução e conectar outra tela.
-- Sair e confirmar que os ícones voltam a aparecer.
 
 Consulte [LICENSE](LICENSE) para a licença do projeto.
