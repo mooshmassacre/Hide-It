@@ -1,0 +1,16 @@
+#!/bin/bash
+set -eu
+
+# Close only the installed Hide-It, so replacing its executable is safe.
+pattern='^/Applications/Hide-It\.app/Contents/MacOS/HideIt$'
+if /usr/bin/pgrep -f "$pattern" >/dev/null; then
+    /usr/bin/pkill -TERM -f "$pattern" || true
+    for attempt in {1..10}; do
+        if ! /usr/bin/pgrep -f "$pattern" >/dev/null; then
+            exit 0
+        fi
+        /bin/sleep 1
+    done
+    echo 'Feche o Hide-It e execute o instalador novamente.' >&2
+    exit 1
+fi
