@@ -69,13 +69,20 @@ parts = [r'{\rtf1\ansi\deff0{\fonttbl{\f0\fswiss Helvetica;}}\viewkind4\uc1\pard
 output.write_text(''.join(parts), encoding='ascii')
 PY
 productbuild --synthesize --package "$stage_dir/Hide-It-component.pkg" "$stage_dir/Distribution.xml"
-python3 - "$stage_dir/Distribution.xml" <<'PY'
+python3 - "$stage_dir/Distribution.xml" "$(uname -m)" <<'PY'
 import sys
 import xml.etree.ElementTree as ET
 
 path = sys.argv[1]
+architecture = sys.argv[2]
+if architecture not in ('arm64', 'x86_64'):
+    raise SystemExit('Arquitetura não suportada para o instalador: ' + architecture)
 tree = ET.parse(path)
 root = tree.getroot()
+options = root.find('options')
+if options is None:
+    raise SystemExit('Configuração do instalador não encontrada.')
+options.set('hostArchitectures', architecture)
 ET.SubElement(root, 'title').text = 'Hide-It'
 ET.SubElement(root, 'welcome', {'file': 'Welcome.rtf', 'mime-type': 'text/rtf'})
 for appearance in ('background', 'background-darkAqua'):

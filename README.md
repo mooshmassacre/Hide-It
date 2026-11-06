@@ -2,6 +2,12 @@
 
 Um aplicativo gratuito para organizar a barra de menus do macOS. Arraste os ícones que deseja ocultar para a esquerda do divisor e use a seta para mostrá-los ou ocultá-los.
 
+## Instalar
+
+Baixe o arquivo `Hide-It-Instalador.pkg` na [versão mais recente](https://github.com/mooshmassacre/Hide-It/releases/latest) e abra-o para instalar ou atualizar o aplicativo na pasta Aplicativos. O instalador pode solicitar a senha de administrador.
+
+O instalador disponibilizado nesta versão foi compilado para Macs com Apple Silicon. Ele não é assinado com Developer ID nem notarizado, e o macOS pode impedir sua abertura.
+
 ## Requisitos
 
 - macOS 13 ou posterior.
